@@ -1,4 +1,5 @@
 var currentDigits = [0b00000000, 0b00000000, 0b00000000, 0b00000000];
+var clearOnAdd = true;
 
 function addFrame() {
 	updateOutput();
@@ -72,4 +73,8 @@ function getParams(element) {
 		bit: bit,
 		index: index
 	};
+}
+
+function setClearOnadd(value) {
+	clearOnAdd = value;
 }

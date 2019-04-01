@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body {
 	text-align: center;
+	font-family: 'Roboto', sans-serif;
 }
 
 #content {
@@ -50,11 +53,18 @@ body {
 	width: 1cm;
 	height: 1cm;
 	font-size: 13pt;
+	margin-bottom: .25cm;
 }
 
 #button-clear {
 	width: 2cm;
+}
+
+#clear-check {
+	width: .5cm;
+	height: .5cm;
 	font-size: 13pt;
+	vertical-align: middle;
 }
 
 #output {
