@@ -1,20 +1,27 @@
-var currentDigits = [0b00000000, 0b00000000, 0b00000000, 0b00000000];
-var clearOnAdd = true;
+var currentDigits;
+var clearOnAdd;
+
+window.onload = function() {
+	currentDigits = [ 0b00000000, 0b00000000, 0b00000000, 0b00000000 ];
+	clearOnAdd = document.getElementById('clear-check').checked;
+};
 
 function addFrame() {
 	updateOutput();
 
-	currentDigits = [0b00000000, 0b00000000, 0b00000000, 0b00000000];
+	if (clearOnAdd) {
+		currentDigits = [ 0b00000000, 0b00000000, 0b00000000, 0b00000000 ];
 
-	Array.from(document.getElementsByClassName('segment-vertical')).forEach(element => {
-		element.setAttribute('onclick', 'enable(this)');
-		element.style.backgroundColor = 'gray';
-	});
+		Array.from(document.getElementsByClassName('segment-vertical')).forEach((element) => {
+			element.setAttribute('onclick', 'enable(this)');
+			element.style.backgroundColor = 'gray';
+		});
 
-	Array.from(document.getElementsByClassName('segment-horizontal')).forEach(element => {
-		element.setAttribute('onclick', 'enable(this)');
-		element.style.backgroundColor = 'gray';
-	});
+		Array.from(document.getElementsByClassName('segment-horizontal')).forEach((element) => {
+			element.setAttribute('onclick', 'enable(this)');
+			element.style.backgroundColor = 'gray';
+		});
+	}
 }
 
 function removeFrame() {
@@ -52,7 +59,7 @@ function updateOutput() {
 		text = '{';
 	}
 
-	currentDigits.forEach(digit => {
+	currentDigits.forEach((digit) => {
 		text += 'B' + ('0000000' + digit.toString(2)).substr(-8) + ', ';
 	});
 
@@ -75,6 +82,6 @@ function getParams(element) {
 	};
 }
 
-function setClearOnadd(value) {
-	clearOnAdd = value;
+function setClearOnAdd(element) {
+	clearOnAdd = element.checked;
 }
